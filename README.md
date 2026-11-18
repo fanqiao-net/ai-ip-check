@@ -5,13 +5,13 @@
 
 面向 **Claude Code、Cursor、OpenAI Codex CLI、Gemini CLI / AI Studio、GitHub Copilot** 以及 **台湾巴哈姆特动画疯、Netflix、YouTube Premium、Disney+** 的零依赖终端连通性与分流一致性自检脚本。
 
-由 **[fanqiao·帆桥（帆桥跨境 / fanqiao.net）](https://fanqiao.net/)** 开源维护。**零遥测、不收集任何数据、默认自动脱敏出口 IP（`a.b.*.*`）**，检测结果可直接放心截图或复制到社区回帖，不会泄露节点 IP。
+由 **[fanqiao·帆桥（帆桥VPN / 帆桥机场，官网 fanqiao.net）](https://fanqiao.net/)** 开源维护。**零遥测、不收集任何数据、默认自动脱敏出口 IP（`a.b.*.*`）**，检测结果可直接放心截图或复制到社区回帖，不会泄露节点 IP。
 
 ---
 
 ## 为什么需要这个工具？
 
-很多开发者经常遇到 **「浏览器能正常打开 Claude / ChatGPT，但终端里的 Claude Code / Codex CLI 或 Cursor 却报 `403 Forbidden`、`unsupported_country` 或连接超时」**。常见根因有 3 类：
+很多开发者经常遇到 **「浏览器能正常打开 Claude / ChatGPT，但终端里的 Claude Code / Codex CLI 或 Cursor / Windsurf 却报 `Unable to connect to Anthropic services`、`Connection failed (VPN/HTTP2)`、`Unusual activity has been detected`、`unsupported_country_region_territory` 或 `403 Forbidden`」**。常见根因有 3 类：
 
 1. **终端进程不读系统代理**：Node.js `fetch`、Python `httpx`、Go/Rust CLI 默认忽略 macOS/Windows 的系统 HTTP 代理，未开 **TUN 虚拟网卡模式** 或未导出 `HTTPS_PROXY` 时实际走了本地直连（`CN`）。
 2. **策略组分流漂移**：主域名走了美国节点，但 API 域名（`api.anthropic.com`、`generativelanguage.googleapis.com`）或支付/风控域名落入了香港（`HK`）或无 AI 节点。
@@ -110,7 +110,8 @@ Mode:  当前终端直测 (IP 默认脱敏，完整显示加 --full-ip)
 ## 相关开源项目与文档
 
 - **客户端 AI 固定出口分流规则库**：[`fanqiao-net/fanqiao-rules`](https://github.com/fanqiao-net/fanqiao-rules)（Shadowrocket / Mihomo / Clash Verge Rev / Loon / sing-box 1.12+）
-- **fanqiao·帆桥官网**：<https://fanqiao.net/> ｜ [38 篇全平台配置指南](https://fanqiao.net/guide) ｜ [公开探针状态](https://fanqiao.net/status)
+- **AI 常见英文报错代码速查修复表**：[`fanqiao.net/guide/ai-error-codes-fix`](https://fanqiao.net/guide/ai-error-codes-fix) ｜ [Cursor/Windsurf 连接失败修复](https://fanqiao.net/guide/cursor-windsurf-http2-fix)
+- **fanqiao·帆桥（帆桥VPN / 帆桥机场）官网**：<https://fanqiao.net/> ｜ [42 篇全平台配置指南](https://fanqiao.net/guide) ｜ [公开探针状态](https://fanqiao.net/status)
 
 ## License
 
