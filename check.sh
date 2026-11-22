@@ -404,4 +404,4 @@ if [ "${#WARNINGS[@]}" -gt 0 ]; then
   done
 fi
 
-printf "\n%sRepo: https://github.com/fanqiao-net/ai-ip-check  |  AI 分流规则与 TUN 指南: https://fanqiao.net/guide/ai-coding%s\n\n" "$C_DIM" "$C_RESET"
+printf "\n%sRepo: https://github.com/fanqiao-net/ai-ip-check  |  AI 分流规则与 TUN 指南: https://fanqiao.net/guide/ai-coding?utm_source=gh-ipcheck%s\n\n" "$C_DIM" "$C_RESET"

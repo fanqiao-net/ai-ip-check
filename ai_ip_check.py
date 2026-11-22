@@ -355,7 +355,7 @@ def main() -> int:
 
     print(
         f"\n{C_DIM}Repo: https://github.com/fanqiao-net/ai-ip-check  |  "
-        f"AI 分流规则与 TUN 指南: https://fanqiao.net/guide/ai-coding{C_RST}\n"
+        f"AI 分流规则与 TUN 指南: https://fanqiao.net/guide/ai-coding?utm_source=gh-ipcheck{C_RST}\n"
     )
     return 0
 
