@@ -112,7 +112,7 @@ Mode:  当前终端直测 (IP 默认脱敏，完整显示加 --full-ip)
 - **2026 AI 编程代理与主流机场选型实测手册**：[`fanqiao-net/ai-proxy-guide-2026`](https://github.com/fanqiao-net/ai-proxy-guide-2026)（协议对比、1x 倍率账单分析、热门机场横向评测与报错速查）
 - **客户端 AI 固定出口分流规则库**：[`fanqiao-net/fanqiao-rules`](https://github.com/fanqiao-net/fanqiao-rules)（Shadowrocket / Mihomo / Clash Verge Rev / Loon / sing-box 1.12+）
 - **AI 常见英文报错代码速查修复表**：[`fanqiao.net/guide/ai-error-codes-fix`](https://fanqiao.net/guide/ai-error-codes-fix) ｜ [Cursor/Windsurf 连接失败修复](https://fanqiao.net/guide/cursor-windsurf-http2-fix) ｜ [AI Studio/NotebookLM 地区限制解决](https://fanqiao.net/guide/google-ai-studio-notebooklm-fix) ｜ [ChatGPT Plus / Claude Pro 订阅防封号](https://fanqiao.net/guide/chatgpt-plus-claude-pro-subscribe)
-- **fanqiao·帆桥（帆桥VPN / 帆桥机场）官网**：<https://fanqiao.net/> ｜ [2026热门机场横向对比总表](https://fanqiao.net/compare) ｜ [53 篇全平台配置指南](https://fanqiao.net/guide) ｜ [公开探针状态](https://fanqiao.net/status)
+- **fanqiao·帆桥（帆桥VPN / 帆桥机场）官网**：<https://fanqiao.net/> ｜ [2026热门机场横向对比总表](https://fanqiao.net/compare) ｜ [56 篇全平台配置指南](https://fanqiao.net/guide) ｜ [公开探针状态](https://fanqiao.net/status)
 - **防失联镜像导航**：<https://fanqiao-net.github.io/> ｜ <https://sites.google.com/view/fanqiao-vpn>
 
 ## License
