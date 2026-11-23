@@ -1,0 +1,4 @@
+theme: jekyll-theme-primer
+title: "ai-ip-check · Claude Code / ChatGPT / Gemini / 台湾家宽连通性自检工具"
+description: "零依赖终端 CLI 一键检测 Claude Code、Cursor、ChatGPT、Gemini 与台湾巴哈姆特动画疯 / Netflix 分流状态（默认自动脱敏 IP，fanqiao·帆桥开源）。"
+lang: zh-CN
