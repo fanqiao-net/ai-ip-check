@@ -6,7 +6,7 @@
 
 set -u
 
-VERSION="1.0.0"
+VERSION="1.1.0"
 PROXY_URL=""
 TIMEOUT=8
 FULL_IP=0
@@ -317,6 +317,23 @@ if [ "$RUN_AI" -eq 1 ]; then
     record_item "ai" "Cursor & Copilot" "fail" "" "$CU_MS" "Cursor HTTP ${CU_CODE} / Copilot HTTP ${CP_CODE}"
   fi
 
+  # 2.7 Google AI Studio & Stripe Billing Endpoint
+  M=$(fetch_meta "$TMP_DIR/aistudio.html" "https://aistudio.google.com/")
+  AS_CODE="${M%%|*}"; REST="${M#*|}"; AS_MS="${REST%%|*}"; AS_EFF="${REST#*|}"
+  if [ "$AS_CODE" = "200" ] && ! printf "%s" "$AS_EFF" | grep -Eiq 'available_regions|sorry/index'; then
+    record_item "ai" "Google AI Studio" "ok" "" "$AS_MS" "aistudio.google.com 正常开放"
+  else
+    record_item "ai" "Google AI Studio" "warn" "" "$AS_MS" "当前出口地区受限或需验证 (${AS_CODE})"
+  fi
+
+  M=$(fetch_meta "$TMP_DIR/stripe.txt" "https://api.stripe.com/healthcheck")
+  ST_CODE="${M%%|*}"; REST="${M#*|}"; ST_MS="${REST%%|*}"
+  if [ "$ST_CODE" = "200" ]; then
+    record_item "ai" "Stripe 订阅收银台" "ok" "" "$ST_MS" "api.stripe.com 可达（建议与 Claude 同出口）"
+  else
+    record_item "ai" "Stripe 订阅收银台" "warn" "" "$ST_MS" "连接受限 (HTTP ${ST_CODE})"
+  fi
+
   # Split-routing insight
   if [ -n "$CLAUDE_IP" ] && [ -n "$GPT_IP" ] && [ "$CLAUDE_IP" != "$GPT_IP" ] && [ "$JSON_OUT" -eq 0 ]; then
     printf "  %s↳ 检测到按服务智能分流：Claude (%s [%s]) ≠ ChatGPT (%s [%s])%s\n" \
@@ -381,6 +398,16 @@ if [ "$RUN_STREAM" -eq 1 ]; then
     record_item "stream" "Disney+" "ok" "$DP_REG" "$DP_MS" "区域入口可达"
   else
     record_item "stream" "Disney+" "warn" "" "$DP_MS" "当前出口地区未开放或受限 (HTTP ${DP_CODE})"
+  fi
+
+  # 3.5 TikTok Web
+  M=$(fetch_meta "$TMP_DIR/tt.html" "https://www.tiktok.com/explore")
+  TT_CODE="${M%%|*}"; REST="${M#*|}"; TT_MS="${REST%%|*}"
+  TT_REG=$(sed -n 's/.*"region":"\([A-Z]\{2\}\)".*/\1/p' "$TMP_DIR/tt.html" | head -n 1)
+  if [ "$TT_CODE" = "200" ] && [ "$TT_REG" != "CN" ] && [ "$TT_REG" != "HK" ]; then
+    record_item "stream" "TikTok" "ok" "$TT_REG" "$TT_MS" "海外区域访问正常"
+  else
+    record_item "stream" "TikTok" "warn" "$TT_REG" "$TT_MS" "出口受限（请避开香港/大陆节点，HTTP ${TT_CODE}）"
   fi
 fi
 

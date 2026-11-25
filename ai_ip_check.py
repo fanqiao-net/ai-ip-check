@@ -18,7 +18,7 @@ import urllib.error
 import urllib.request
 from typing import Any, Dict, List, Optional, Tuple
 
-VERSION = "1.0.0"
+VERSION = "1.1.0"
 UA = (
     "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_15_7) "
     "AppleWebKit/537.36 (KHTML, like Gecko) Chrome/131.0.0.0 Safari/537.36"
@@ -130,6 +130,8 @@ def main() -> int:
             "openai_api": ("https://api.openai.com/v1/models", None),
             "gemini_web": ("https://gemini.google.com/app", None),
             "gemini_api": ("https://generativelanguage.googleapis.com/v1beta/models", None),
+            "aistudio": ("https://aistudio.google.com/", None),
+            "stripe": ("https://api.stripe.com/healthcheck", None),
             "cursor": ("https://api2.cursor.sh", None),
             "copilot": ("https://api.githubcopilot.com/_ping", None),
         })
@@ -140,6 +142,7 @@ def main() -> int:
             "nf_orig": ("https://www.netflix.com/title/80018499", None),
             "yt_red": ("https://www.youtube.com/red", {"Accept-Language": "en-US,en;q=0.9"}),
             "disney": ("https://www.disneyplus.com/", None),
+            "tiktok": ("https://www.tiktok.com/explore", None),
         })
 
     raw: Dict[str, Tuple[int, int, str, Dict[str, str], str]] = {}
@@ -264,6 +267,18 @@ def main() -> int:
         else:
             add("ai", "Cursor & Copilot", "fail", "", cu_ms, f"Cursor HTTP {cu_code} / Copilot HTTP {cp_code}")
 
+        as_code, as_ms, as_url, _, _ = raw["aistudio"]
+        if as_code == 200 and not re.search(r"available_regions|sorry/index", as_url, re.I):
+            add("ai", "Google AI Studio", "ok", "", as_ms, "aistudio.google.com 正常开放")
+        else:
+            add("ai", "Google AI Studio", "warn", "", as_ms, f"当前出口地区受限或需验证 ({as_code})")
+
+        st_code, st_ms, _, _, _ = raw["stripe"]
+        if st_code == 200:
+            add("ai", "Stripe 订阅收银台", "ok", "", st_ms, "api.stripe.com 可达（建议与 Claude 同出口）")
+        else:
+            add("ai", "Stripe 订阅收银台", "warn", "", st_ms, f"连接受限 (HTTP {st_code})")
+
     if run_stream:
         bh_code, bh_ms, _, _, bh_body = raw["bahamut"]
         if bh_code == 200 and "animeSn" in bh_body:
@@ -298,6 +313,14 @@ def main() -> int:
             add("stream", "Disney+", "ok", m_dp.group(1).upper() if m_dp else "", dp_ms, "区域入口可达")
         else:
             add("stream", "Disney+", "warn", "", dp_ms, f"当前出口地区未开放或受限 (HTTP {dp_code})")
+
+        tt_code, tt_ms, _, _, tt_body = raw["tiktok"]
+        m_tt = re.search(r'"region":"([A-Z]{2})"', tt_body)
+        tt_reg = m_tt.group(1) if m_tt else ""
+        if tt_code == 200 and tt_reg not in ("CN", "HK"):
+            add("stream", "TikTok", "ok", tt_reg, tt_ms, "海外区域访问正常")
+        else:
+            add("stream", "TikTok", "warn", tt_reg, tt_ms, f"出口受限（请避开香港/大陆节点，HTTP {tt_code}）")
 
     if args.json_out:
         print(json.dumps({

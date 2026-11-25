@@ -3,7 +3,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Zero Dependency](https://img.shields.io/badge/deps-zero%20(curl%20%2F%20python3)-blue.svg)](#快速开始)
 
-面向 **Claude Code、Cursor、OpenAI Codex CLI、Gemini CLI / AI Studio、GitHub Copilot** 以及 **台湾巴哈姆特动画疯、Netflix、YouTube Premium、Disney+** 的零依赖终端连通性与分流一致性自检脚本。
+面向 **Claude Code、Cursor、OpenAI Codex CLI、Gemini CLI / Google AI Studio、Stripe 支付风控、GitHub Copilot** 以及 **台湾巴哈姆特动画疯、Netflix、YouTube Premium、Disney+、TikTok** 的零依赖终端连通性与分流一致性自检脚本（v1.1.0）。
 
 由 **[fanqiao·帆桥（帆桥VPN / 帆桥机场，官网 fanqiao.net）](https://fanqiao.net/)** 开源维护。**零遥测、不收集任何数据、默认自动脱敏出口 IP（`a.b.*.*`）**，检测结果可直接放心截图或复制到社区回帖，不会泄露节点 IP。
 
@@ -111,8 +111,8 @@ Mode:  当前终端直测 (IP 默认脱敏，完整显示加 --full-ip)
 
 - **2026 AI 编程代理与主流机场选型实测手册**：[`fanqiao-net/ai-proxy-guide-2026`](https://github.com/fanqiao-net/ai-proxy-guide-2026)（协议对比、1x 倍率账单分析、热门机场横向评测与报错速查）
 - **客户端 AI 固定出口分流规则库**：[`fanqiao-net/fanqiao-rules`](https://github.com/fanqiao-net/fanqiao-rules)（Shadowrocket / Mihomo / Clash Verge Rev / Loon / sing-box 1.12+）
-- **AI 常见英文报错代码速查修复表**：[`fanqiao.net/guide/ai-error-codes-fix`](https://fanqiao.net/guide/ai-error-codes-fix) ｜ [Cursor/Windsurf 连接失败修复](https://fanqiao.net/guide/cursor-windsurf-http2-fix) ｜ [AI Studio/NotebookLM 地区限制解决](https://fanqiao.net/guide/google-ai-studio-notebooklm-fix) ｜ [ChatGPT Plus / Claude Pro 订阅防封号](https://fanqiao.net/guide/chatgpt-plus-claude-pro-subscribe)
-- **fanqiao·帆桥（帆桥VPN / 帆桥机场）官网**：<https://fanqiao.net/> ｜ [2026热门机场横向对比总表](https://fanqiao.net/compare) ｜ [56 篇全平台配置指南](https://fanqiao.net/guide) ｜ [公开探针状态](https://fanqiao.net/status)
+- **AI 常见英文报错代码速查修复表**：[`fanqiao.net/guide/ai-error-codes-fix`](https://fanqiao.net/guide/ai-error-codes-fix) ｜ [Claude Code Max 与 MCP 代理](https://fanqiao.net/guide/claude-code-max-mcp-proxy) ｜ [Cursor/Windsurf 连接失败修复](https://fanqiao.net/guide/cursor-windsurf-http2-fix) ｜ [AI Studio/NotebookLM 地区限制解决](https://fanqiao.net/guide/google-ai-studio-notebooklm-fix) ｜ [ChatGPT Plus / Claude Pro 订阅防封号](https://fanqiao.net/guide/chatgpt-plus-claude-pro-subscribe)
+- **fanqiao·帆桥（帆桥VPN / 帆桥机场）官网**：<https://fanqiao.net/> ｜ [2026热门机场横向对比总表](https://fanqiao.net/compare) ｜ [60 篇全平台配置指南](https://fanqiao.net/guide) ｜ [公开探针状态](https://fanqiao.net/status)
 - **防失联镜像导航**：<https://fanqiao-net.github.io/> ｜ <https://sites.google.com/view/fanqiao-vpn>
 
 ## License
