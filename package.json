@@ -1,0 +1,45 @@
+{
+  "name": "ai-ip-check",
+  "version": "1.1.0",
+  "description": "Zero-dependency CLI to diagnose Claude Code, Cursor, ChatGPT, Gemini & regional streaming (Bahamut / Netflix / YouTube Premium) proxy connectivity",
+  "type": "module",
+  "bin": {
+    "ai-ip-check": "bin/ai-ip-check.mjs"
+  },
+  "files": [
+    "bin/",
+    "ai_ip_check.py",
+    "check.sh",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "claude-code",
+    "claude",
+    "chatgpt",
+    "gemini",
+    "cursor",
+    "codex",
+    "proxy-checker",
+    "ip-check",
+    "streaming-unlock",
+    "mihomo",
+    "clash-verge-rev",
+    "sing-box",
+    "shadowrocket",
+    "vless-reality"
+  ],
+  "homepage": "https://fanqiao.net/guide/ai-coding",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/fanqiao-net/ai-ip-check.git"
+  },
+  "bugs": {
+    "url": "https://github.com/fanqiao-net/ai-ip-check/issues"
+  },
+  "author": "fanqiao <noreply@fanqiao.net> (https://fanqiao.net/)",
+  "license": "MIT",
+  "engines": {
+    "node": ">=18.0.0"
+  }
+}

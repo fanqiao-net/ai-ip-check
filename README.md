@@ -1,9 +1,10 @@
 # ai-ip-check · AI 与流媒体终端连通性自检工具
 
+[![npm version](https://img.shields.io/npm/v/ai-ip-check.svg)](https://www.npmjs.com/package/ai-ip-check)
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
-[![Zero Dependency](https://img.shields.io/badge/deps-zero%20(curl%20%2F%20python3)-blue.svg)](#快速开始)
+[![Zero Dependency](https://img.shields.io/badge/deps-zero%20(node%20%2F%20curl%20%2F%20python3)-blue.svg)](#快速开始)
 
-面向 **Claude Code、Cursor、OpenAI Codex CLI、Gemini CLI / Google AI Studio、Stripe 支付风控、GitHub Copilot** 以及 **台湾巴哈姆特动画疯、Netflix、YouTube Premium、Disney+、TikTok** 的零依赖终端连通性与分流一致性自检脚本（v1.1.0）。
+面向 **Claude Code、Cursor、OpenAI Codex CLI、Gemini CLI / Google AI Studio、Stripe 支付风控、GitHub Copilot** 以及 **台湾巴哈姆特动画疯、Netflix、YouTube Premium、Disney+、TikTok** 的零依赖终端连通性与分流一致性自检工具（v1.1.0）。
 
 由 **[fanqiao·帆桥（帆桥VPN / 帆桥机场，官网 fanqiao.net）](https://fanqiao.net/)** 开源维护。**零遥测、不收集任何数据、默认自动脱敏出口 IP（`a.b.*.*`）**，检测结果可直接放心截图或复制到社区回帖，不会泄露节点 IP。
 
@@ -23,19 +24,28 @@
 
 ## 快速开始
 
-### 1. macOS / Linux / WSL / OpenWrt（纯 `curl` 单行运行）
+### 1. 全平台通用 `npx` 一键运行（Windows / macOS / Linux，Node.js 18+ 零依赖）
+
+```bash
+npx ai-ip-check
+
+# 指定本地代理端口测试（如 Clash Verge Rev 默认 7897 或 Mihomo 7890）
+npx ai-ip-check -x http://127.0.0.1:7897
+```
+
+### 2. macOS / Linux / WSL / OpenWrt（纯 `curl` 单行运行，无需 Node）
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/fanqiao-net/ai-ip-check/main/check.sh | bash
 ```
 
-不改系统环境、直接指定本地代理端口测试（例如 Clash Verge Rev 默认端口 `7897` 或 Mihomo `7890`）：
+不改系统环境、直接指定本地代理端口测试：
 
 ```bash
 curl -fsSL https://raw.githubusercontent.com/fanqiao-net/ai-ip-check/main/check.sh | bash -s -- -x http://127.0.0.1:7897
 ```
 
-### 2. Windows PowerShell / 跨平台并发极速版（Python 3 标准库，约 2 秒跑完）
+### 3. Windows PowerShell / Python 3 标准库版
 
 ```powershell
 # 下载并并发检测（无需 pip 安装任何第三方库）
@@ -43,9 +53,10 @@ curl.exe -fsSL https://raw.githubusercontent.com/fanqiao-net/ai-ip-check/main/ai
 python ai_ip_check.py -x http://127.0.0.1:7897
 ```
 
-### 3. JSON 机器可读输出（适用于自动化巡检 / 状态栏脚本）
+### 4. JSON 机器可读输出（适用于自动化巡检 / 状态栏脚本）
 
 ```bash
+npx ai-ip-check --ai-only --json
 bash check.sh --ai-only --json
 python3 ai_ip_check.py --json
 ```
