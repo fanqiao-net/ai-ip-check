@@ -1,4 +1,4 @@
-# ai-ip-check · AI 编程与流媒体终端连通性一键自检工具
+# ai-ip-check · AI 与流媒体终端连通性自检工具
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Zero Dependency](https://img.shields.io/badge/deps-zero%20(curl%20%2F%20python3)-blue.svg)](#快速开始)
